@@ -5,16 +5,23 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DemoMaterialModule } from '../DemoMaterialModule';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
   declarations: [
     CustomerComponent,
-    DashboardComponent
+    DashboardComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,
     CustomerRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     DemoMaterialModule
   ]
 })
