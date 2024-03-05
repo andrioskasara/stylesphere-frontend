@@ -48,6 +48,30 @@ export class AdminService {
     })
   }
 
+  addCoupon(couponDto: any): Observable<any> {
+    return this.http.post(BASIC_URL + 'api/admin/coupon', couponDto, {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
+  getCoupons(): Observable<any> {
+    return this.http.get(BASIC_URL + 'api/admin/coupons', {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
+  getPlacedOrders(): Observable<any> {
+    return this.http.get(BASIC_URL + 'api/admin/placed-orders', {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
+  changeOrderStatus(orderId: number, status: string): Observable<any> {
+    return this.http.post(BASIC_URL + `api/admin/order/${orderId}/${status}`, {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
   private createAuthorizationHeader(): HttpHeaders {
     return new HttpHeaders().set(
       'Authorization', 'Bearer' + UserStorageService.getToken()

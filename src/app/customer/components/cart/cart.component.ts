@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { PlaceOrderComponent } from '../place-order/place-order.component';
 
 @Component({
   selector: 'app-cart',
@@ -12,6 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class CartComponent {
   carItems: any[] = [];
   order: any;
+  couponForm!: FormGroup;
 
   constructor(
     private customerService: CustomerService,
@@ -20,8 +22,22 @@ export class CartComponent {
     public dialog: MatDialog
   ) { }
 
-  ngOnInit():void {
+  ngOnInit(): void {
+    this.couponForm = this.fb.group({
+      code: [null, [Validators.required]]
+    })
     this.getCart();
+  }
+
+  applyCoupon() {
+    this.customerService.applyCoupon(this.couponForm.get(['code'])!.value).subscribe(
+      res => {
+        this.snackBar.open('Coupon applied successfully', 'Close', { duration: 5000 });
+        this.getCart();
+      }, error => {
+        this.snackBar.open(error.error, 'Close', { duration: 5000 });
+      }
+    )
   }
 
   getCart() {
@@ -35,6 +51,28 @@ export class CartComponent {
         })
       }
     )
+  }
+
+  increaseQuantity(productId: any) {
+    this.customerService.increaseProductQuantity(productId).subscribe(
+      res => {
+        this.snackBar.open('Product quantity increased', 'Close', { duration: 5000 });
+        this.getCart();
+      }
+    )
+  }
+
+  decreaseQuantity(productId: any) {
+    this.customerService.increaseProductQuantity(productId).subscribe(
+      res => {
+        this.snackBar.open('Product quantity decreased', 'Close', { duration: 5000 });
+        this.getCart();
+      }
+    )
+  }
+
+  placeOrder() {
+    this.dialog.open(PlaceOrderComponent)
   }
 
 }
