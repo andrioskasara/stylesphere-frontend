@@ -12,6 +12,7 @@ import { PlaceOrderComponent } from './components/place-order/place-order.compon
 import { UsersOrdersComponent } from './components/users-orders/users-orders.component';
 import { ViewOrderedProductsComponent } from './components/view-ordered-products/view-ordered-products.component';
 import { ReviewOrderedProductComponent } from './components/review-ordered-product/review-ordered-product.component';
+import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ReviewOrderedProductComponent } from './components/review-ordered-produ
     PlaceOrderComponent,
     UsersOrdersComponent,
     ViewOrderedProductsComponent,
-    ReviewOrderedProductComponent
+    ReviewOrderedProductComponent,
+    ViewProductDetailsComponent
   ],
   imports: [
     CommonModule,
