@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './components/cart/cart.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
 import { UsersOrdersComponent } from './components/users-orders/users-orders.component';
+import { ViewOrderedProductsComponent } from './components/view-ordered-products/view-ordered-products.component';
+import { ReviewOrderedProductComponent } from './components/review-ordered-product/review-ordered-product.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { UsersOrdersComponent } from './components/users-orders/users-orders.com
     DashboardComponent,
     CartComponent,
     PlaceOrderComponent,
-    UsersOrdersComponent
+    UsersOrdersComponent,
+    ViewOrderedProductsComponent,
+    ReviewOrderedProductComponent
   ],
   imports: [
     CommonModule,
