@@ -8,6 +8,7 @@ import { PostCouponComponent } from './components/post-coupon/post-coupon.compon
 import { CouponsComponent } from './components/coupons/coupons.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
+import { AnalyticsComponent } from './components/analytics/analytics.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'coupons', component: CouponsComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'product/edit/:productId', component: UpdateProductComponent },
+  { path: 'analytics', component: AnalyticsComponent },
 
 ];
 
