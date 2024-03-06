@@ -7,6 +7,7 @@ import { UsersOrdersComponent } from './components/users-orders/users-orders.com
 import { ViewOrderedProductsComponent } from './components/view-ordered-products/view-ordered-products.component';
 import { ReviewOrderedProductComponent } from './components/review-ordered-product/review-ordered-product.component';
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
+import { ViewWishlistComponent } from './components/view-wishlist/view-wishlist.component';
 
 const routes: Routes = [
   { path: '', component: CustomerComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'ordered_products/:orderId', component: ViewOrderedProductsComponent },
   { path: 'review/:productId', component: ReviewOrderedProductComponent },
   { path: 'product/:productId', component: ViewProductDetailsComponent },
+  { path: 'wishlist', component: ViewWishlistComponent },
 ];
 
 @NgModule({
